@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Information Retrieval</title>
+        <meta charset="utf-8">
+
+        <script src="//code.jquery.com/jquery-latest.js"></script>
+        <!-- 	<script src="app.js"></script> -->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-latest.js"></script>
+
+<!--        Helvetica font-->
+        <script type="text/javascript" src="http://fast.fonts.net/jsapi/607782f1-d416-455d-b81a-01475efeabf4.js"></script>
+
+<!--        Levenim font-->
+<!--        <link href="http://db.onlinewebfonts.com/c/4aedb84cb7e5aa0e9c807efdb0cd947f?family=Levenim+MT" rel="stylesheet" type="text/css"/>-->
+
+
+        <link rel="stylesheet"  href="includes/style.css" >
+        <script src="includes/scripts.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script>
+            function refreshPage(){
+                $.post("http://localhost:8080/Retrieval/Retrieval/includes/createTables.php");
+                window.open("http://localhost:8080/Retrieval/Retrieval/intro.html","_self");
+                window.location.reload(true);
+            }
+
+            function showDelete(){
+                var list = document.getElementsByClassName("deleteBtn");
+
+                if(list[0].style.display == "none")
+                    for (i = 0; i < list.length; i++) {
+                        list[i].style.display = "block";
+                    }
+                else
+                    for (i = 0; i < list.length; i++) {
+                        list[i].style.display = "none";
+                    }
+            }
+
+
+            $(document).ready(function(){
+                var list = document.getElementsByClassName("deleteBtn");
+                for (i = 0; i < list.length; i++) {
+                    list[i].style.display = "none";
+                }
+
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <div id="wrapperIntro">
+            <header>
+                <h1>Information Retrieval System</h1>
+                <nav><ul>
+                    <li><a class="activeLine" href="intro.html">Files</a></li>
+                     <li><a href="index.html">Index</a></li>
+                     <li><a href="search.html">Search</a></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="javascript:refreshPage();" id="refreshBtn"></a></li>
+                </ul></nav>
+            </header>
+            <div class="files_container">
+                <nav>
+                    <div class="btn-group-vertical" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" onclick="location.href='addNewFile.html'">Add</button>
+                        <button type="button" class="btn btn-default" onclick="showDelete();">Remove</button>
+<!--                        <button type="button" class="btn btn-default">temp1</button>-->
+                    </div>
+
+                </nav>
+                <div id="files_bar" class="list-group">
+<!--
+                    <a href="#" class="list-group-item active">
+                        <h4 class="list-group-item-heading">No. // Name of File // Author Name</h4>
+                        <p class="list-group-item-text">Date</p>
+                        <p class="list-group-item-text">Summary</p>
+                        <img src="images/v.png">
+                    </a>
+-->
+<!--
+                <a href="javascript:showLyrics(1)" class="list-group-item active" style="width: 750px;">
+                    <h4 class="list-group-item-heading">
+                        1 // ../data/Coldplay - Trouble.txt
+                    </h4>
+                    <p class="list-group-item-text">
+                        Coldplay - Trouble
+                    </p>
+                    <p class="list-group-item-text">
+                        2000
+                    </p>
+                    <p class="list-group-item-text">
+                        Summary
+                    </p>
+                    <img src="images/coldplay.jpg"/>
+                </a>
+                <a href="deleteFile.php?fileid=1">
+                    <img src="./images/x.png" class="deleteBtn" href="deleteFile.php?fileid=1" data-pin-nopin="true"/>
+                </a>
+
+
+                <a href="javascript:showLyrics(1)" class="list-group-item active" style="width: 750px;">
+                    <h4 class="list-group-item-heading">
+                        1 // ../data/Coldplay - Trouble.txt
+                    </h4>
+                    <p class="list-group-item-text">
+                        Coldplay - Trouble
+                    </p>
+                    <p class="list-group-item-text">
+                        2000
+                    </p>
+                    <p class="list-group-item-text">
+                        Summary
+                    </p>
+                    <img src="images/coldplay.jpg"/>
+                </a>
+                <a href="deleteFile.php?fileid=1">
+                    <img src="./images/x.png" class="deleteBtn" href="deleteFile.php?fileid=1" data-pin-nopin="true"/>
+                </a>
+-->
+
+
+                </div>
+                <div class="clear"></div>
+
+
+            </div>
+        </div>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    </body>
+</html>
