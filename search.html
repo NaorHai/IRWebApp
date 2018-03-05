@@ -1,107 +1,114 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Project</title>
-        <meta charset="utf-8">
+<head>
+    <title>Project</title>
+    <meta charset="utf-8">
 
-        <script src="//code.jquery.com/jquery-latest.js"></script>
-        <!-- 	<script src="app.js"></script> -->
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <!-- 	<script src="app.js"></script> -->
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-latest.js"></script>
-        <script type="text/javascript" src="includes/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="includes/angular/angular.min.js"></script>
 
-        <script type="text/javascript" src="http://fast.fonts.net/jsapi/607782f1-d416-455d-b81a-01475efeabf4.js"></script>
+    <script type="text/javascript" src="http://fast.fonts.net/jsapi/607782f1-d416-455d-b81a-01475efeabf4.js"></script>
 
-        <link rel="stylesheet"  href="includes/style.css" >
-        <script src="includes/scripts.js"></script>
+    <link rel="stylesheet" href="includes/style.css">
+    <script src="includes/scripts.js"></script>
 
-        <script>
-            function refreshPage(){
-                $.post("includes/createTables.php");
-                window.open("intro.html","_self");
-                window.location.reload(true);
+    <script>
+        function refreshPage() {
+            $.post("includes/createTables.php");
+            window.open("intro.html", "_self");
+            window.location.reload(true);
+        }
+    </script>
+
+</head>
+
+<body ng-app="myApp">
+<div id="wrapperIntro" ng-controller="myCtrl">
+    <header>
+        <h1>Information Retrieval System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Index</a></li>
+                <li><a class="activeLine" href="intro.html">Files</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="javascript:refreshPage();" id="lastNavChild">Refresh</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="files_container">
+        <div class="clear"></div>
+
+        <form id="form" name="form" method="get">
+            <h2 id="search">Search</h2>
+            <input class="searchInput" id="searchInput" type="text" ng-model="myValue" ng-change=search=1
+                   name="searchInput" value="" placeholder="Enter a Word" onchange="doSomething(value);">
+        </form>
+
+        <script type="text/javascript">
+            function doSomething(value) {
+                document.getElementById('iframeSearch').remove();
+                var iframe = document.createElement('iframe');
+                iframe.id = "iframeSearch";
+                iframe.frameBorder = "0";
+                iframe.height = "100%";
+                var html = "includes/searchPostingFile.php?searchInput=" + value + "";
+                iframe.src = encodeURI(html);
+                console.log("iframe: " + iframe.src);
+                document.getElementById("searchBox").appendChild(iframe);
             }
         </script>
 
-    </head>
 
-    <body ng-app="myApp">
-        <div id="wrapperIntro" ng-controller="myCtrl">
-            <header>
-                <h1>Information Retrieval System</h1>
-                <nav><ul>
-                    <li><a class="activeLine" href="intro.html">Files</a></li>
-                     <li><a href="index.html">Index</a></li>
-                     <li><a href="search.html">Search</a></li>
-                     <li><a href="about.html">About</a></li>
-                     <li><a href="javascript:refreshPage();" id="refreshBtn"></a></li>
-                </ul></nav>
-            </header>
-
-            <div class="files_container">
-                    <div class="clear"></div>
-
-                    <form id="form" name="form" method="get">
-                        <label>Search</label>
-                        <div class="clear"></div>
-                        <input class="searchInput" id="searchInput" type="text" ng-model="myValue" ng-change=search=1 name="searchInput" value="" placeholder="Enter a Word" onchange="doSomething(value);">
-                    </form>
-
-                    <script type="text/javascript">
-                        function doSomething(value) {
-                            document.getElementById('iframeSearch').remove();
-                            var iframe = document.createElement('iframe');
-                            iframe.id = "iframeSearch";
-                            iframe.frameBorder = "0";
-                            iframe.height = "100%";
-                            var html = "includes/searchPostingFile.php?searchInput="+value+"";
-                            iframe.src = encodeURI(html);
-                            console.log("iframe: "+iframe.src);
-                            document.getElementById("searchBox").appendChild(iframe);
-                        }
-                    </script>
-
-
-                    <div ng-show="search" id="searchBox">
-                        <iframe id="iframeSearch" name="myPHPScript" src="includes/search.php?searchInput=get" height="100%" frameborder="0">
-                        </iframe>
-                    </div>
-
-                    <div class="clear"></div>
-
-
-
-                    <script>
-                        var app = angular.module('myApp', []);
-                        app.controller('myCtrl', function($scope) {
-                            $scope.search = 0;
-                            $scope.myValue;
-                        });
-                    </script>
-
-
-                    <div class="clear"></div>
-                    <div ng-hide="search">
-                        <h1 class="reservedTitle">Reserved Words</h1>
-                        <iframe id="iframeReserved" name="myPHPScript" src="includes/reservedWords.php" height="100%" frameborder="0">
-                        </iframe>
-                    </div>
-
-            </div>
+        <div ng-show="search" id="searchBox">
+            <iframe id="iframeSearch" name="myPHPScript" src="includes/search.php?searchInput=get" height="100%"
+                    frameborder="0">
+            </iframe>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    </body>
+        <div class="clear"></div>
+
+
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                $scope.search = 0;
+                $scope.myValue;
+            });
+        </script>
+
+
+        <div class="clear"></div>
+        <div ng-hide="search">
+            <h2 class="reservedTitle">Reserved Words</h2>
+            <iframe id="iframeReserved" name="myPHPScript" src="includes/reservedWords.php" height="100%"
+                    frameborder="0">
+            </iframe>
+        </div>
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
 </html>

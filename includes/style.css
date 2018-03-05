@@ -1,184 +1,126 @@
-@font-face {
-    font-family: Levenim MT;
-    src: url(4aedb84cb7e5aa0e9c807efdb0cd947f.woff);
-}
-
-body{
+body {
     padding: 0;
-    background: url(../images/backgroundBlack.jpg);
-    background-size : 100% 100% ;
-	background-attachment:fixed ;
-    height : 100%;
-    font-family: "Levenim MT" , arial;
-    color : aliceblue;
-    width : 90%;
-    margin: 0px auto;
+    background: url(../images/bodyBackground.jpg) fixed;
+    background-size: 100% 100%;
+    color: aliceblue;
+    margin: 0 auto;
 }
 
-
-#wrapperIntro{
-    margin-top: -60px;
+#wrapperIntro > header {
+    float: left;
+    margin-top: 0;
+    background: black;
+    margin-bottom: 10px;
 }
 
-#wrapperIntro > header{
-    float:left;
-    height : 20%;
-    border : 2px solid aliceblue;
-    border-radius: 15px;
-    margin-top: 0%;
-    padding: 1%;
-}
-
-header > h1, header > nav{
-    height: 100%;
-    line-height: 50%;
-    font-size : 1.2vw;
+header > h1, header > nav {
     display: inline;
-    float : left;
-    font-family: "Levenim MT" , arial;
-    color : aliceblue;
+    float: left;
+    color: aliceblue;
+    margin: 20px;
 }
 
-header > nav{
-    margin-top: 1.6%;
-    height: 100%;
-/*    line-height: 200px;*/
-/*    line-height: 3.7vh;*/
-/*    width       : 50%;*/
-/*    float       : left;*/
+header > nav {
+    float: right;
 }
 
-header > nav > ul{
+header > nav > ul {
     list-style: none;
-    height : 100%;
 }
 
-header nav ul li{
+header nav ul li {
     display: inline-block;
-/*    line-height: 50%;*/
-/*    float:left;*/
-    font-family: "Levenim MT" , arial;
-/*    font-size : 1vw;*/
-}
-
-h2{
-    font-size: 20px;
-    width: 150px;
-    margin-top: 0px;
-    margin-left: 60px;
     margin-right: 20px;
-    float : left;
-    font-family: "Levenim MT" , arial;
-    color : aliceblue;
 }
 
-.infoInput{
+#search {
+    text-align: center;
+}
+
+.infoInput {
     padding: 10px;
     float: left;
-    width: 500px;
+    width: 80%;
     height: 35px;
     color: #000;
     margin-left: 60px;
     border-radius: 10px;
-    border: 3px solid cornflowerblue;
+    border: 1px solid cornflowerblue;
 }
 
-.lyricsInput{
+.lyricsInput {
     padding: 10px;
-    float: left;
-    width: 500px;
+    width: 80%;
     height: 250px;
+    min-height: 250px;
     color: #000;
     margin-left: 60px;
     border-radius: 10px;
-    border: 3px solid cornflowerblue;
+    border: 1px solid cornflowerblue;
+    resize: vertical;
 }
 
-#uploadBtn{
-    margin-left: 60px;
+#uploadBtn {
     margin-top: 20px;
-    width: 500px;
-    height: 50px;
-    background-color: cornflowerblue;
-    color: white;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 50%
 }
 
-label{
+label {
     margin-bottom: 20px;
 }
 
-#downloadify{
+#downloadify {
     margin-top: -30px;
     margin-left: 260px;
 }
 
-.searchInput{
+.searchInput {
     padding: 20px;
-    width: 640px;
+    width: 50%;
     height: 35px;
     color: #000;
-    margin-left: 170px;
     border-radius: 10px;
     border: 3px solid cornflowerblue;
-    font: 26px;
+    display: block;
+    margin: 0 auto !important;
 }
 
-
-
-nav ul li a{
+nav ul li a {
     text-decoration: none;
-    color : aliceblue;
+    color: aliceblue;
     transition: 0.25s ease-in;
+    font-size: 20px;
 }
 
-nav ul li a:hover , a:focus , a:active{
+#lastNavChild {
+    font-size: 15px;
+}
+
+nav ul li a:hover, a:focus, a:active {
     text-decoration: none;
-    color : #62ae6e;
-/*    border-bottom: 5px solid #419645;*/
+    color: cornflowerblue;
     cursor: pointer;
 }
 
-#refreshBtn {
-    background: url(../images/Refresh.png);
-    background-size: 35px 30px;
-    margin-top: -3px;
-    height: 30px;
-    width: 35px;
-    float: right;
+.files_container {
+    width: 90%;
+    margin: 0 auto;
 }
 
-.files_container{
-    width : 75%;
-    margin: 0px auto;
-    margin-top: 5%;
-    /*  responsive  */
+#sortingBox ul {
+    list-style: none;
 }
 
-#sortingBox {
-    margin-left : 17%;
-    margin-top: 10px;
+#sortingBox ul li {
     float: left;
 }
 
-#sortingBox > h4 {
-    float: left;
-    margin-right: 7px;
-    margin-left: 7px;
-    font-size: 15px;
+#sortingBox ul li button {
+    color: white;
 }
 
-#sortingBox > button {
-    float: left;
-    margin-top: 5px;
-    font-size: 15px;
-    text-decoration: none;
-    color : aliceblue;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+#sortingBox h4 {
+    font-size: 25px;
 }
 
 #sortingBox > button:hover {
@@ -186,109 +128,80 @@ nav ul li a:hover , a:focus , a:active{
     color: cornflowerblue;
 }
 
-.files_container > nav{
-    float : left;
+.files_container > nav > .btn-group-vertical {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
 }
 
-.files_container > nav > .btn-group-vertical{
-    margin-right : 13%;
-    float : left;
-}
-
-.files_container > nav > .btn-group-vertical > button{
-    height : 75px;
-}
-
-
-.files_container > .list-group{
-    float:left;
+.files_container > .list-group {
+    float: left;
     margin-left: 5%;
 }
 
-.files_container > .list-group > a{
-    width : 250%;
-    height : 120px;
+.files_container > .list-group > a {
+    width: 250%;
+    height: 120px;
 }
 
-.navbar-inverse{
-    color : white;
+.navbar-inverse {
+    color: white;
 }
 
-a > img{
+a > img {
     position: absolute;
-    width : 100px;
-    height : 100px;
-    right : 10px;
-    top : 8px;
+    width: 100px;
+    height: 100px;
+    right: 10px;
+    top: 8px;
 
 }
 
 header {
-	display : block;
-	width : 100% ;
-	height : 80px ;
+    display: block;
+    width: 100%;
 }
 
 #wrapper {
-	width : 1000px;
-	margin : 0px auto ;
-	height: 1000px;
+    width: 1000px;
+    margin: 0px auto;
+    height: 1000px;
 }
-
-/*#tablesTitle {
-	width: 400px;
-	margin-left: 0px;
-}
-
-#searchTitle {
-	width: 300px;
-	float: left;
-	margin-left: 0px;
-}*/
 
 .titlePage {
-    width: 100%;
     text-align: center;
 }
 
 label {
     width: 100%;
     text-align: center;
-	font-size: 42px;
+    font-size: 42px;
     font-weight: 100;
-    font-family: "Levenim MT" , arial;
-    color : aliceblue;
+    color: aliceblue;
 }
 
 .reservedTitle {
     margin-top: 60px;
-    width: 100%;
     text-align: center;
-	font-size: 42px;
-    font-weight: 100;
-    font-family: "Levenim MT" , arial;
-    color : aliceblue;
+    color: aliceblue;
 }
 
 input[type=text] {
-	height : 30px;
-	border-radius: 8px;
-	margin-right: 10px;
+    border-radius: 8px;
+    margin-right: 10px;
     color: black;
 }
 
 input[type=submit] {
-	height : 30px;
-	border-radius: 8px;
+    border-radius: 8px;
 }
 
 td {
-	border: 2px solid red;
+    border: 2px solid red;
 }
 
-
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 #addNewForm {
@@ -296,9 +209,12 @@ table {
     background: rgba(219, 240, 255, 0.2);
     padding: 10px;
     width: 65%;
-    height: 850px;
     margin: 0px auto;
     margin-top: 30px;
+}
+
+#addNewForm h2 {
+    text-align: center;
 }
 
 #uploadNewFile {
@@ -306,102 +222,95 @@ table {
     background: rgba(219, 240, 255, 0.2);
     padding: 10px;
     width: 65%;
-    height: 250px;
-    margin: 0px auto;
+    margin: 0 auto;
+}
+
+#uploadNewFile {
+    text-align: center;
 }
 
 .deleteBtn {
     cursor: pointer;
     position: relative;
     z-index: 999;
-    right : -82px;
-    top : -84px;
+    right: -82px;
+    top: -84px;
     width: 50px;
     height: 50px;
     display: none;
     float: right;
 }
 
-
-
 iframe {
     float: left;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #iframeSearch {
-	width: 990px;
-	height: 1500px;
-	margin-top: 30px;
+    width: 990px;
+    /*height: 1500px;*/
+    margin-top: 30px;
 }
 
 #iframeTables {
-	width: 990px;
-	height: 12300px;
-	background-color: transparent;
-	border-radius: 10px;
+    width: 90%;
+    /*height: 12300px;*/
+    background-color: transparent;
+    border-radius: 10px;
     margin: 0px auto;
 }
 
 #iframeReserved {
-	width: 990px;
-	height: 1500px;
+    width: 990px;
+    /*height: 1500px;*/
     margin: 0px auto;
 }
 
-#id_container{
-    margin: auto;
-    width : 70%;
-    margin-top: -7vh;
-    display: block;
+#id_container {
+    margin: 0 auto;
 }
 
-#id_container > h2{
+#id_container > h2 {
     position: absolute;
     left: 40%;
-    top : 15%;
+    top: 15%;
 }
 
-#teamPlayer{
+#teamPlayer {
     margin: 10%;
     float: left;
-    top : 40%;
-    width : 30%;
-    color : aliceblue;
+    top: 40%;
+    width: 30%;
+    color: aliceblue;
 }
 
-#teamPlayer > h1{
-    font-size: 2vw;
+#teamPlayer1 {
+    float: left;
+    margin: 3% 3% 0 3%;
     text-align: center;
 }
 
-#teamPlayer > h2{
-    //width : 100%;
-    //float: left;
-    margin-left: 25%;
-    font-size : 1.3vw;
+#teamPlayer2 {
+    float: right;
+    margin: 3% 3% 0 3%;
+    text-align: center;
 }
 
-#teamPlayer > hr{
-
+.story {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bolder;
 }
-
-.story{
-    margin : 7%;
-    font-size : 1.5vw;
-}
-
-
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
-@media only screen and (min-width: 1900px) {
-    .files_container{
-        width : 50%;
-        margin: 0px auto;
-        margin-top: 5%;
-        /*  responsive  */
-    }
+.btn-group-vertical > .btn {
+    font-size: 20px;
+}
+
+.btn-group-vertical hr {
+    margin: 10px;
 }
