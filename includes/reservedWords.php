@@ -21,11 +21,11 @@ function reservedWords()
         // print first table row
         $tableHeads = '<table style="font-family: Levenim MT , tahoma; margin: 0px auto; margin-bottom: 40px; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
 
-        $tableRowStart = '<td style="font-family: Levenim MT , tahoma;padding-left:20px; border:none ! important; font-size: 20px; color: #fff; font-color: #fff; height: 40px; width: 130px; background: url(../images/frow.png); "><span style="">';
+        $tableRowStart = '<td style="font-family: Levenim MT , tahoma;padding-left:20px; border-bottom:1px solid white; font-size: 20px; color: #fff; height: 40px; width: 130px; background:black; "><span style="">';
 
         $tableRowEnd = '</span></td>';
 
-        $tableTdStart = '<td style="font-family: Levenim MT , tahoma;padding-left:15px; border: 1px solid; border:none ! important; font-size: 17px; color: #fff; font-color: #fff; height: 40px; width: 70px; background: url(../images/row.png); ">';
+        $tableTdStart = '<td style="font-family: Levenim MT , tahoma;padding-left:15px; border-bottom:1px solid white; font-size: 17px; color: #fff;  height: 40px; width: 70px; background: black; ">';
 
         echo $tableHeads;
         {

@@ -5,8 +5,7 @@ if (isset($_GET['delete'])) {
     return;
 } else $deleteFlag = false;
 
-
-// craate sql connection
+// create sql connection
 include('connection.php');
 
 // make query to sql files table
@@ -20,14 +19,14 @@ if (!$result) {
 
 // print all sql data rows
 while ($row = mysqli_fetch_assoc($result)) {
-    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="list-group-item active" style="width: 750px;">';
+    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="list-group-item active" style="width: 750px;margin: 0 auto; margin-bottom:5px">';
     echo '<h4 class="list-group-item-heading">' . $row["fileID"] . " // " . $row["fileName"] . '</h4>';
     echo '<p class="list-group-item-text">' . $row["songAuthor"] . ' - ' . $row["songName"] . '</p>';
     echo '<p class="list-group-item-text">' . $row["songDate"] . '</p>';
     echo '<p class="list-group-item-text">' . $row["songSummary"] . '</p>';
     echo '<img src="' . $row["songPic"] . '"/>';
     echo '</a>';
-    echo '<a href="deleteFile.php?fileid=' . $row["fileID"] . '">';
+    echo '<a title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<img src="./images/x.png" class="deleteBtn" data-pin-nopin="true"/>';
     echo '</a>';
 }
@@ -50,5 +49,5 @@ echo '<script type="text/javascript">
 // close sql connection
 mysqli_free_result($result);
 mysqli_close($connection);
-header('Location: ../intro.html');
+//header('Location: ../intro.html');
 ?>

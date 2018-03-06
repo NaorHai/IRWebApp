@@ -1,8 +1,8 @@
 <?php
 //craate sql connection
-$servername = "localhost";
+$servername = "localhost:3306";
 $username = "root";
-$password = "root";
+$password = "shely9188";
 $dbname = "ir_index";
 
 // Create connection
