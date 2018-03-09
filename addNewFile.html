@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <script src="//code.jquery.com/jquery-la§test.js"></script>
 
     <script type="text/javascript" src="http://fast.fonts.net/jsapi/607782f1-d416-455d-b81a-01475efeabf4.js"></script>
 
@@ -45,21 +45,18 @@
             var path = (input.value).split("\\");
             console.log("filename: " + path[2]);
 
-            $(document).ready(function () {
-                $("button").click(function () {
-                    //alert("Data: ");
-                    $.get("test.php?filename=" + path[2] + "");
-                });
-            });
+//            $(document).ready(function () {
+//                $("button").click(function () {
+//                    console.log("file was uploaded...");
+//                    $.get("test.php?filename=" + path[2]);
+//                });
+//            });
 
 
             $(document).ready(function () {
                 $("#uploadBtn").click(function () {
-                    alert("System Refreshed Successfully");
+//                    alert("System Refreshed Successfully");
                     $.post("includes/createTables.php");
-                    window.open("intro.html", "_self");
-                    location = "intro.html";
-                    window.location.reload(true);
                 });
             });
 
@@ -90,19 +87,17 @@
     </header>
     <div class="files_container">
 
-
+        <form action="test.php" target="_blank" method="post" enctype="multipart/form-data">
         <div id="uploadNewFile">
             <div class="clear"></div>
             <h1>Upload New Lyrics</h1>
             <h2>Add New File</h2>
-            <input type='file' id="openFile" accept='text/plain' onchange='javascript:openFile(event)'>
-            <button class="btn btn-primary" id="uploadBtn">Upload</button>
+            <input type='file' id="openFile" name="fileToUpload" accept='text/plain'>
+            <button type="submit" value="upload" name="submit" class="btn btn-primary" id="uploadBtn">Upload</button>
             <div class="clear"></div>
             <br>
         </div>
-
         <div id="addNewForm">
-            <form>
                 <h2>Add New Lyrics</h2>
                 <div class="clear"></div>
                 <h3>File Name</h3>

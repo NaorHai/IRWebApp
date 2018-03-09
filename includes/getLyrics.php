@@ -57,7 +57,7 @@ function getLyrics()
                         <input type='text' name='keyword' class='form-control input-sm' value='" . $wordId . "'>";
     }
 
-    $txt_file = file_get_contents('' . $fileName . '');
+    $txt_file = file_get_contents('../' . $fileName . '');
     $rows = explode("\n", $txt_file);
 
     $counter = 0;

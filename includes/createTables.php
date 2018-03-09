@@ -9,7 +9,7 @@ function buildInvertedIndex($filenames)
     include('connection.php');
 
     // create sql files table
-    $sqlFiles = "CREATE TABLE Files(
+    $sqlFiles = "CREATE  TABLE Files(
             fileID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             fileName VARCHAR(80) ,
             songName VARCHAR(30) ,
@@ -125,7 +125,7 @@ function buildInvertedIndex($filenames)
     }
 
     // close sql connection
-    mysqli_free_result($result);
+//    mysqli_free_result($result);
     mysqli_close($connection);
 
     return $invertedIndex;
@@ -135,7 +135,7 @@ function buildInvertedIndex($filenames)
 // create array of files Names from local folder
 $filesNames = array();
 $filesCounter = 0;
-foreach (glob('../data/*.*') as $filename) {
+foreach (glob('./data/*.*') as $filename) {
     $filesCounter++;
     $filesNames[$filesCounter] = $filename;
 }
