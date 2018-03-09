@@ -21,9 +21,11 @@ if (!$result) {
 while ($row = mysqli_fetch_assoc($result)) {
 
     echo '<div>';
+    echo '<a title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<button class="deleteBtn" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<img style="width: 40px" src="./images/x.png" data-pin-nopin="true"/>';
     echo '</button>';
+    echo '</a>';
     echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="col-xs-6 col-md-6" style="text-decoration:none;">';
     echo '<div class="panel panel-primary">';
     echo '<div class="panel-heading"><h4 style="display: inline-block;">' . $row["fileName"] . '</h4>';
