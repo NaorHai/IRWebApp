@@ -19,7 +19,7 @@ function reservedWords()
         or die("<h2 style='font-family: Levenim MT , arial; color : aliceblue;'>Error : " . mysqli_error($connection) . "<br>" . $mainTable . "</h2>");
 
         // print first table row
-        $tableHeads = '<table style="font-family: Levenim MT , tahoma; margin: 0px auto; margin-bottom: 40px; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
+        $tableHeads = '<table style="font-family: Levenim MT , tahoma; margin: 0 auto; margin-bottom: 40px; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
 
         $tableRowStart = '<td style="font-family: Levenim MT , tahoma;padding-left:20px; border-bottom:1px solid white; font-size: 20px; color: #fff; height: 40px; width: 130px; background:black; "><span style="">';
 

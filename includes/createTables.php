@@ -5,7 +5,7 @@ function buildInvertedIndex($filenames)
     // error execution fix
     set_time_limit(0);
 
-    // craate sql connection
+    // create sql connection
     include('connection.php');
 
     // create sql files table
@@ -132,7 +132,7 @@ function buildInvertedIndex($filenames)
 }
 
 
-// create array of files Names from loacl folder
+// create array of files Names from local folder
 $filesNames = array();
 $filesCounter = 0;
 foreach (glob('../data/*.*') as $filename) {

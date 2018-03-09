@@ -141,8 +141,8 @@ nav ul li a:hover, a:focus, a:active {
 }
 
 .files_container > .list-group > a {
-    width: 250%;
-    height: 120px;
+    /*width: 250%;*/
+    /*height: 120px;*/
 }
 
 .navbar-inverse {
@@ -165,7 +165,7 @@ header {
 
 #wrapper {
     width: 1000px;
-    margin: 0px auto;
+    margin: 0 auto;
     height: 1000px;
 }
 
@@ -231,13 +231,15 @@ table {
 }
 
 .deleteBtn {
-    cursor: pointer;
-    position: relative;
-    z-index: 999;
+    /*cursor: pointer;*/
+    /*position: relative;*/
+    /*z-index: 999;*/
     /*right: -82px;*/
-    top: -84px;
-    width: 50px;
-    height: 50px;
+    /*top: -84px;*/
+    /*width: 50px;*/
+    /*height: 50px;*/
+    background-color: transparent;
+    border: none;
     display: none;
     float: right;
 }
@@ -249,7 +251,8 @@ iframe {
 
 #iframeSearch {
     width: 990px;
-    height: 1000px;
+    /*height: 1000px;*/
+    height: 450px;
     margin-top: 30px;
 }
 #searchBox{
@@ -258,7 +261,8 @@ iframe {
 
 #iframeTables {
     width: 100%;
-    height: 1000px;
+    /*height: 1000px;*/
+    height: 450px;
     background-color: transparent;
     border-radius: 10px;
     margin: 0px auto;
@@ -266,7 +270,8 @@ iframe {
 
 #iframeReserved {
     width: 990px;
-    height: 1000px;
+    /*height: 1000px;*/
+    height: 380px;
     margin: 0px auto;
 }
 .iframeReserved{
@@ -299,6 +304,14 @@ iframe {
     padding: 10px;
     border-radius: 10px;
 }
+#teamPlayer1 h1,
+#teamPlayer2 h1{
+    font-size: 20px;
+}
+#teamPlayer1 h2,
+#teamPlayer2 h2{
+    font-size: 16px;
+}
 
 #teamPlayer2 {
     float: right;
@@ -312,7 +325,7 @@ iframe {
 .story {
     width: 60%;
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bolder;
 }
 .story p{

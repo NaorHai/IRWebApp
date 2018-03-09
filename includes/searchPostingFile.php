@@ -108,7 +108,7 @@ function getSearchPostingFile()
         return;
     } else {
         echo "<h2 style='font-family: Levenim MT , arial;
-            color : aliceblue; font-size: 25px; margin-left: 360px; font-weight: 300;'>" . $num_rows . " Documents Found</h2>";
+            color : aliceblue; font-size: 25px; text-align:center; font-weight: 300;'>" . $num_rows . " Documents Found, Click on the row in order to open the Player</h2>";
     }
 
 

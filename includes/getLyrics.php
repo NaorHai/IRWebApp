@@ -14,7 +14,7 @@ function getLyrics()
     if (isset($_GET['file']))
         $fileId = $_GET['file'];
 
-    // craate sql connection
+    // create sql connection
     include('connection.php');
 
     // make query to sql files table
@@ -62,7 +62,7 @@ function getLyrics()
 
     $counter = 0;
 
-    echo '<div style="background: url(../images/backgroundBlack.jpg);
+    echo '<div style="background: url(../images/bodyBackground.jpg);
             padding: 70px;
             background-size : 100% 100% ;
 	        background-attachment:fixed ;
