@@ -34,7 +34,7 @@
     <script>
         function refreshPage() {
             $.post("includes/createTables.php");
-            window.open("intro.html", "_self");
+            window.open("files.html", "_self");
             window.location.reload(true);
         }
     </script>
@@ -48,7 +48,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Index</a></li>
-                <li><a class="activeLine" href="intro.html">Files</a></li>
+                <li><a class="activeLine" href="files.html">Files</a></li>
                 <li><a href="search.html">Search</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="javascript:refreshPage();" id="lastNavChild">Refresh</a></li>
@@ -61,6 +61,7 @@
 
         <form id="form" name="form" method="get">
             <h2 id="search">Search</h2>
+            <h4 id="typeAndEnter">Search and press Enter in order to get the result</h4>
             <input class="searchInput"
                    id="searchInput"
                    type="text"

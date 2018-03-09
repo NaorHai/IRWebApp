@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //Placing the elements in intro.html
+    //Placing the elements in files.html
     $.ajax({
         type: "POST",
         url: "includes/file_bars.php",

@@ -39,7 +39,7 @@
     <script>
         function refreshPage() {
             $.post("http://localhost:8080/Retrieval/Retrieval/includes/createTables.php");
-            window.open("http://localhost:8080/Retrieval/Retrieval/intro.html", "_self");
+            window.open("http://localhost:8080/Retrieval/Retrieval/files.html", "_self");
             window.location.reload(true);
         }
 
@@ -75,7 +75,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Index</a></li>
-                <li><a class="activeLine" href="intro.html">Files</a></li>
+                <li><a class="activeLine" href="files.html">Files</a></li>
                 <li><a href="search.html">Search</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="javascript:refreshPage();" id="lastNavChild">Refresh</a></li>

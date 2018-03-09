@@ -7,9 +7,6 @@ function getLyrics()
 
     echo "<script src='https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>";
 
-
-    $markFlag = 0;
-
     // Init
     if (isset($_GET['file']))
         $fileId = $_GET['file'];
@@ -40,8 +37,6 @@ function getLyrics()
     // Case need to mark word
     if (isset($_GET['word'])) {
         $tosearch = $_GET['word'];
-
-        $markFlag = 1;
         // connect
         include('connection.php');
 
@@ -100,9 +95,6 @@ function getLyrics()
         }
 
         if ($counter > 8) {
-            if ($markFlag) {
-                // here we should mark (.$wordId.)
-            }
             if ($runOnce) {
                 $runOnce = 0;
                 echo '<div class="panel-body context">';

@@ -39,7 +39,6 @@ function getPostingFile($word)
     // send query to sql hits table
     $result = mysqli_query($connection, $postingFileSql) or die(mysqli_error());
 
-
     echo '<table style="margin: 0px auto; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
 
     echo '<tr><a href="#">';

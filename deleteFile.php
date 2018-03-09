@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['fileid'])) {
     $fileId = $_GET['fileid'];
-
+echo "<script>console.log('herrrrr')</script>";
     // create sql connection
     include('includes/connection.php');
 
@@ -35,7 +35,7 @@ if (isset($_GET['fileid'])) {
     // close sql connection
     mysqli_free_result($result);
     mysqli_close($connection);
-    header('Location: intro.html');
+    header('Location: files.html');
 
 } else {
     echo 'Cant fetch filename';

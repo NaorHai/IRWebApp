@@ -20,12 +20,13 @@ if (!$result) {
 // print all sql data rows
 while ($row = mysqli_fetch_assoc($result)) {
 
-    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="col-xs-6 col-md-6" style="text-decoration:none;">';
-    echo '<div class="panel panel-primary">';
-    echo '<div class="panel-heading"><h4 style="display: inline-block;">' . $row["fileName"] . '</h4>';
+    echo '<div>';
     echo '<button class="deleteBtn" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<img style="width: 40px" src="./images/x.png" data-pin-nopin="true"/>';
     echo '</button>';
+    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="col-xs-6 col-md-6" style="text-decoration:none;">';
+    echo '<div class="panel panel-primary">';
+    echo '<div class="panel-heading"><h4 style="display: inline-block;">' . $row["fileName"] . '</h4>';
     echo '</div>';
     echo '<div class="panel-body">';
     echo '<div style="float: left"><p>' . $row["songAuthor"] . ' - ' . $row["songName"] . '</p>';
@@ -36,6 +37,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '</div>';
     echo '</div>';
     echo '</a>';
+    echo '</div>';
 
 }
 
@@ -48,7 +50,7 @@ echo '<script type="text/javascript">
                 $.post("http://localhost:8080/Retrieval/Retrieval/deleteFile.php?filename="+value+"");
 
                 $.post("http://localhost:8080/Retrieval/Retrieval/includes/createTables.php");
-                window.open("http://localhost:8080/Retrieval/Retrieval/intro.html","_self");
+                window.open(files.html,"_self");
                 window.location.reload(true);
 
         }

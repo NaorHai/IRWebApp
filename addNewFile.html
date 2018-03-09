@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-la§test.js"></script>
 
     <script type="text/javascript" src="http://fast.fonts.net/jsapi/607782f1-d416-455d-b81a-01475efeabf4.js"></script>
 
@@ -38,33 +37,9 @@
 
     <script>
 
-
-        var openFile = function (event) {
-            var input = event.target;
-            console.log("path: " + input.value);
-            var path = (input.value).split("\\");
-            console.log("filename: " + path[2]);
-
-//            $(document).ready(function () {
-//                $("button").click(function () {
-//                    console.log("file was uploaded...");
-//                    $.get("upload.php?filename=" + path[2]);
-//                });
-//            });
-
-
-            $(document).ready(function () {
-                $("#uploadBtn").click(function () {
-//                    alert("System Refreshed Successfully");
-                    $.post("includes/createTables.php");
-                });
-            });
-
-        };
-
         function refreshPage() {
             $.post("includes/createTables.php");
-            window.open("intro.html", "_self");
+            window.open("files.html", "_self");
             window.location.reload(true);
         }
 
@@ -78,7 +53,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Index</a></li>
-                <li><a class="activeLine" href="intro.html">Files</a></li>
+                <li><a class="activeLine" href="files.html">Files</a></li>
                 <li><a href="search.html">Search</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="javascript:refreshPage();" id="lastNavChild">Refresh</a></li>
@@ -88,45 +63,17 @@
     <div class="files_container">
 
         <form action="upload.php" target="_blank" method="post" enctype="multipart/form-data">
-        <div id="uploadNewFile">
-            <div class="clear"></div>
-            <h1>Upload New Lyrics</h1>
-            <h2>Add New File</h2>
-            <input type='file' id="openFile" name="fileToUpload" accept='text/plain'>
-            <button type="submit" value="upload" name="submit" class="btn btn-primary" id="uploadBtn">Upload</button>
-            <div class="clear"></div>
-            <br>
-        </div>
-        <div id="addNewForm">
-                <h2>Add New Lyrics</h2>
+            <div id="uploadNewFile">
                 <div class="clear"></div>
-                <h3>File Name</h3>
-                <input type="text" id="filename" class="infoInput" value="file5.txt">
+                <h1>Upload New Lyrics</h1>
+                <h2>Add New File</h2>
+                <input type='file' id="openFile" name="fileToUpload" accept='text/plain'>
+                <button type="submit" value="upload" name="submit" class="btn btn-primary" id="uploadBtn">Upload
+                </button>
                 <div class="clear"></div>
                 <br>
-                <h3>Artist</h3>
-                <input type="text" id="artistname" class="infoInput" placeholder="Enter Artist Name">
-                <div class="clear"></div>
-                <br>
-                <h3>Song</h3>
-                <input type="text" id="songname" class="infoInput" placeholder="Enter Song Name">
-                <div class="clear"></div>
-                <br>
-                <h3>Date</h3>
-                <input type="text" id="songdate" class="infoInput" placeholder="Enter Song Date">
-                <div class="clear"></div>
-                <br>
-                <h3>Lyrics</h3>
-                <textarea class="lyricsInput" id="lyricsData" placeholder="Enter Lyrics Here"></textarea>
-                <div class="clear"></div>
-                <br>
-                <!--                        <input type="submit" id="formSubmit" value="Submit">-->
-                <div class="clear"></div>
-                <br><br><br>
-                <p id="downloadify"></p><br><br><br>
-            </form>
-        </div>
-
+            </div>
+        </form>
 
         <script type="text/javascript">
             Downloadify.create('downloadify', {

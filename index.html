@@ -34,7 +34,7 @@
     <script>
         function refreshPage() {
             $.post("includes/createTables.php");
-            window.open("intro.html", "_self");
+            window.open("files.html", "_self");
             window.location.reload(true);
         }
     </script>
@@ -49,7 +49,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Index</a></li>
-                <li><a class="activeLine" href="intro.html">Files</a></li>
+                <li><a class="activeLine" href="files.html">Files</a></li>
                 <li><a href="search.html">Search</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="javascript:refreshPage();" id="lastNavChild">Refresh</a></li>
@@ -64,31 +64,8 @@
 
         <h1 class="titlePage">Lyrics Hits Table</h1>
 
-        <!--<section id="sortingBox">-->
-            <!--<ul>-->
-                <!--<li><h4>Sort By:</h4></li>-->
-                <!--<li>-->
-                    <!--<h4>-->
-                        <!--<button name="id" value="id" class="btn-link" onclick="NewSort('id');">Id</button>-->
-                    <!--</h4>-->
-                <!--</li>-->
-                <!--<li><h4>|</h4></li>-->
-                <!--<li>-->
-                    <!--<h4>-->
-                        <!--<button name="word" value="word" class="btn-link" onclick="NewSort('word');">Keyword</button>-->
-                    <!--</h4>-->
-                <!--</li>-->
-                <!--<li><h4>|</h4></li>-->
-                <!--<li>-->
-                    <!--<h4>-->
-                        <!--<button name="hits" value="hits" class="btn-link" onclick="NewSort('hits');">Hits</button>-->
-                    <!--</h4>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</section>-->
-
         <div id="contentTable" ng-hide="word">
-            <iframe ng-onChange=word=1 id="iframeTables" name="myPHPScript" src="includes/getTables.php?sort=id"
+            <iframe ng-onChange=word=1 id="iframeTables" name="myPHPScript" src="includes/getTables.php"
                     height="100%" frameborder="0">
             </iframe>
         </div>
@@ -98,20 +75,6 @@
             app.controller('myCtrl', function ($scope) {
                 $scope.word = 0;
             });
-        </script>
-
-        <script type="text/javascript">
-            function NewSort(sort) {
-                document.getElementById("iframeTables").remove();
-                var iframe = document.createElement("iframe");
-                iframe.id = "iframeTables";
-                iframe.frameBorder = "0";
-                iframe.height = "100%";
-                var html = "includes/getTables.php?sort=" + sort + "";
-                iframe.src = encodeURI(html);
-                console.log("iframe: " + iframe.src);
-                document.getElementById("contentTable").appendChild(iframe);
-            }
         </script>
 
         <div class="clear"></div>

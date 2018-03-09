@@ -37,7 +37,7 @@ function buildInvertedIndex($filenames)
     } else {
         $deleteSql = "DROP TABLE Files";
         if (mysqli_query($connection, $deleteSql)) {
-//                echo "Old Files Table Deleted Successfully<br><br>";
+//            Old Files Table Deleted Successfully
             mysqli_query($connection, $sqlFiles);
         } else {
             echo "Error: " . $deleteSql . "<br>" . mysqli_error($conn);
@@ -50,19 +50,16 @@ function buildInvertedIndex($filenames)
     } else {
         $deleteSql = "DROP TABLE Hits";
         if (mysqli_query($connection, $deleteSql)) {
-//                echo "Old Hits Table Deleted Successfully<br><br>";
+//            Old Hits Table Deleted Successfully
             mysqli_query($connection, $sqlHits);
         } else {
             echo "Error: " . $deleteSql . "<br>" . mysqli_error($conn);
         }
     }
 
-    //mysqli_close($connection);
-
     $invertedIndex = [];
     $filesCounter = 0;
     $lyrics = false;
-    $info = "";
 
     foreach ($filenames as $filename) {
 
@@ -75,7 +72,6 @@ function buildInvertedIndex($filenames)
         foreach ($matches as $match) {
             $word = strtolower($match[0]);
             if ($lyrics) {
-                //$word = strtolower($match[0]);
                 if (($word == " you") ||
                     ($word == " a") ||
                     ($word == " i") ||
@@ -116,7 +112,7 @@ function buildInvertedIndex($filenames)
                   VALUES ('$filename','$new_arr[1]','$new_arr[0]','$new_arr[2]','$new_arr[3]','$new_arr[4]','$new_arr[5]')";
 
         if (mysqli_query($connection, $addToFile)) {
-            //echo "<b>File successfully</b><br>";
+//            File successfully
         } else {
             echo "<br><b>Error: " . $addToFile . "</b><br>" . mysqli_error($connection) . "<br>";
         }
@@ -125,12 +121,10 @@ function buildInvertedIndex($filenames)
     }
 
     // close sql connection
-//    mysqli_free_result($result);
     mysqli_close($connection);
 
     return $invertedIndex;
 }
-
 
 // create array of files Names from local folder
 $filesNames = array();
