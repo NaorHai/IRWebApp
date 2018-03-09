@@ -14,7 +14,7 @@ function getInvertedTable()
     else $sort = "ID asc";
 
 
-    // craate sql connection
+    // create sql connection
     include('connection.php');
 
     // make query to sql hits table
@@ -62,7 +62,7 @@ function getInvertedTable()
         $FromFiles = $row['FromFiles'];
         $TotalHits = $row['TotalHits'];
         $temp = &$ID;
-        echo '<tr onclick="Javascript:doSomething(' . $temp . ')">';
+        echo '<tr style="cursor: pointer;" onclick="Javascript:doSomething(' . $temp . ')">';
 
 //        echo '<td style="border-bottom:1px solid white; padding-left:15px; font-size: 17px; color: #fff; height: 40px; width: 70px; background: black">' . $ID . '</td>';
         echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 17px; color: #fff; height: 40px; width: 100px; background:black ">' . $KeyWord . '</td>';

@@ -44,7 +44,7 @@ function getPostingFile($word)
 
     echo '<tr><a href="#">';
     echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 90px; background: black; "><span style="font-weight:bold;">FileNum</span></td>';
-    echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 170px; background:black; "><span style="font-weight:bold;">Hits</span></td>';
+    echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 90px; background:black; "><span style="font-weight:bold;">Hits</span></td>';
     echo '</a></tr>';
 
     // print all sql data rows
@@ -86,7 +86,7 @@ function searchWord2($word)
     $num_rows = mysqli_num_rows($result);
 
     echo "<h2 style='font-family: Levenim MT , arial;
-    color : aliceblue; font-size: 25px; margin-left: 380px; font-weight: 100; color: #fff; margin-top: 30px;'>" . $num_rows . " Results Found</h2>";
+    color : aliceblue; font-size: 25px; text-align: center; font-weight: 100; color: #fff; margin-top: 30px;'>" . $num_rows . " Results Found</h2>";
 
     // print first table row
     echo '<table style="margin: 0px auto; border-collapse: collapse; cellspacing="0" cellpadding="0";">';

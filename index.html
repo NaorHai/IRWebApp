@@ -64,28 +64,28 @@
 
         <h1 class="titlePage">Lyrics Hits Table</h1>
 
-        <section id="sortingBox">
-            <ul>
-                <li><h4>Sort By:</h4></li>
-                <li>
-                    <h4>
-                        <button name="id" value="id" class="btn-link" onclick="NewSort('id');">Id</button>
-                    </h4>
-                </li>
-                <li><h4>|</h4></li>
-                <li>
-                    <h4>
-                        <button name="word" value="word" class="btn-link" onclick="NewSort('word');">Keyword</button>
-                    </h4>
-                </li>
-                <li><h4>|</h4></li>
-                <li>
-                    <h4>
-                        <button name="hits" value="hits" class="btn-link" onclick="NewSort('hits');">Hits</button>
-                    </h4>
-                </li>
-            </ul>
-        </section>
+        <!--<section id="sortingBox">-->
+            <!--<ul>-->
+                <!--<li><h4>Sort By:</h4></li>-->
+                <!--<li>-->
+                    <!--<h4>-->
+                        <!--<button name="id" value="id" class="btn-link" onclick="NewSort('id');">Id</button>-->
+                    <!--</h4>-->
+                <!--</li>-->
+                <!--<li><h4>|</h4></li>-->
+                <!--<li>-->
+                    <!--<h4>-->
+                        <!--<button name="word" value="word" class="btn-link" onclick="NewSort('word');">Keyword</button>-->
+                    <!--</h4>-->
+                <!--</li>-->
+                <!--<li><h4>|</h4></li>-->
+                <!--<li>-->
+                    <!--<h4>-->
+                        <!--<button name="hits" value="hits" class="btn-link" onclick="NewSort('hits');">Hits</button>-->
+                    <!--</h4>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</section>-->
 
         <div id="contentTable" ng-hide="word">
             <iframe ng-onChange=word=1 id="iframeTables" name="myPHPScript" src="includes/getTables.php?sort=id"

@@ -61,11 +61,23 @@
 
         <form id="form" name="form" method="get">
             <h2 id="search">Search</h2>
-            <input class="searchInput" id="searchInput" type="text" ng-model="myValue" ng-change=search=1
-                   name="searchInput" value="" placeholder="Enter a Word" onchange="doSomething(value);">
+            <input class="searchInput"
+                   id="searchInput"
+                   type="text"
+                   ng-model="myValue"
+                   ng-enter=search=1
+                   name="searchInput"
+                   placeholder="Enter a Word">
         </form>
 
         <script type="text/javascript">
+            var input = document.getElementById("searchInput");
+            input.addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    doSomething(document.getElementById("searchInput").value)
+                }
+            });
             function doSomething(value) {
                 document.getElementById('iframeSearch').remove();
                 var iframe = document.createElement('iframe');
@@ -74,20 +86,9 @@
                 iframe.height = "100%";
                 var html = "includes/searchPostingFile.php?searchInput=" + value + "";
                 iframe.src = encodeURI(html);
-                console.log("iframe: " + iframe.src);
                 document.getElementById("searchBox").appendChild(iframe);
             }
         </script>
-
-
-        <div ng-show="search" id="searchBox">
-            <iframe id="iframeSearch" name="myPHPScript" src="includes/search.php?searchInput=get" height="100%"
-                    frameborder="0">
-            </iframe>
-        </div>
-
-        <div class="clear"></div>
-
 
         <script>
             var app = angular.module('myApp', []);
@@ -95,17 +96,25 @@
                 $scope.search = 0;
                 $scope.myValue;
             });
+            angular.module('myApp').directive('ngEnter', function() {
+                return function(scope, element, attrs) {
+                    element.bind("keydown keypress", function(event) {
+                        if(event.which === 13) {
+                            scope.$apply(function(){
+                                scope.$eval(attrs.ngEnter, {'event': event});
+                            });
+                            event.preventDefault();
+                        }
+                    });
+                };
+            });
         </script>
 
-
-        <div class="clear"></div>
-        <div ng-hide="search" class="iframeReserved">
-            <h2 class="reservedTitle">Reserved Words</h2>
-            <iframe id="iframeReserved" name="myPHPScript" src="includes/reservedWords.php" height="100%"
+        <div ng-show="search" id="searchBox">
+            <iframe id="iframeSearch" name="myPHPScript" src="includes/search.php?searchInput=get" height="100%"
                     frameborder="0">
             </iframe>
         </div>
-
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

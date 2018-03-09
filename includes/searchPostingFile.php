@@ -105,7 +105,7 @@ function getSearchPostingFile()
     // headline
     if ($num_rows == 0) {
         echo "<h2 style='font-family: Levenim MT , arial;
-            color : #ffa8a8 ; font-size: 25px; margin-left: 400px; font-weight: 300; margin-top: 30px; margin-bottom: 20px;'>No Results</h2>";
+            color : black;  font-size: 25px; text-align: center; font-weight: 900; margin-top: 30px; margin-bottom: 20px;'>No Results</h2>";
         return;
     } else {
         echo "<h2 style='font-family: Levenim MT , arial;
