@@ -19,12 +19,13 @@ function getInvertedTable()
 
     // make query to sql hits table
     $mainTable = "select
-            id as ID,
-            word as Keyword,
-            count(distinct(fileNo)) as FromFiles, count(offset) as TotalHits
+           DISTINCT (word) as Keyword, 
+            (SELECT MAX(id)) as ID,
+            group_concat(DISTINCT fileNo separator ',') as FromFiles,
+            sum(hits) as TotalHits
             from Hits where isStopList = 0
-            group BY Keyword, ID
-            order by " . $sort . "";
+            group BY Keyword
+            order by ' . $sort . '";
     //order by ".$sort." desc";
 
     // send query to sql hits table
@@ -34,7 +35,7 @@ function getInvertedTable()
     echo '<table style="font-family: Levenim MT , arial; margin: 0px auto; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
 
     echo '<tr>';
-    echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 90px; background: black "><span style="font-weight:bold;">#</span></td>';
+//    echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 90px; background: black "><span style="font-weight:bold;">#</span></td>';
     echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 170px; background: black "><span style="font-weight:bold;">KeyWord</span></td>';
     echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 150px; background: black "><span style="font-weight:bold;">From X Files</span></td>';
     echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 20px; color: #fff; height: 40px; width: 150px; background: black "><span style="font-weight:bold;">Total Hits</span></td>';
@@ -63,7 +64,7 @@ function getInvertedTable()
         $temp = &$ID;
         echo '<tr onclick="Javascript:doSomething(' . $temp . ')">';
 
-        echo '<td style="border-bottom:1px solid white; padding-left:15px; font-size: 17px; color: #fff; height: 40px; width: 70px; background: black">' . $ID . '</td>';
+//        echo '<td style="border-bottom:1px solid white; padding-left:15px; font-size: 17px; color: #fff; height: 40px; width: 70px; background: black">' . $ID . '</td>';
         echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 17px; color: #fff; height: 40px; width: 100px; background:black ">' . $KeyWord . '</td>';
         echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 17px; color: #fff; height: 40px; width: 100px; background:black ">' . $FromFiles . '</td>';
         echo '<td style="border-bottom:1px solid white; padding-left:20px; font-size: 17px; color: #fff; height: 40px; width: 100px; background:black ">' . $TotalHits . '</td>';
