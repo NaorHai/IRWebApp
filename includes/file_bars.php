@@ -20,16 +20,16 @@ if (!$result) {
 // print all sql data rows
 while ($row = mysqli_fetch_assoc($result)) {
 
-    echo '<div>';
+    echo '<div class="col-xs-6 col-md-6" >';
     echo '<a target="_blank" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<button class="deleteBtn" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<img style="width: 40px" src="./images/x.png" data-pin-nopin="true"/>';
     echo '</button>';
     echo '</a>';
-    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" class="col-xs-6 col-md-6" style="text-decoration:none;">';
+    echo '<a href="javascript:showLyrics(' . $row["fileID"] . ')" style="text-decoration:none;">';
     echo '<div class="panel panel-primary">';
     echo '<div class="panel-heading"><h4 style="display: inline-block;">' . $row["fileName"] . '</h4>';
-    echo '</div>';
+    echo '<span style="    float: right; font-size: 30px;">'. $row["fileID"] . '</span> </div>';
     echo '<div class="panel-body">';
     echo '<div style="float: left"><p>' . $row["songAuthor"] . ' - ' . $row["songName"] . '</p>';
     echo '<p>' . $row["songDate"] . '</p>';
