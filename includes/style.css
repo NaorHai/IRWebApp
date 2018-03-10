@@ -131,7 +131,7 @@ nav ul li a:hover, a:focus, a:active {
 .files_container > nav > .btn-group-vertical {
     display: block;
     margin: 0 auto;
-    width: 50%;
+    width: 480px;
     margin-bottom: 20px;
 }
 
