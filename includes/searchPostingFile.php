@@ -30,7 +30,7 @@ function getSearchPostingFile()
             fileNo as FileNum ,
             sum(hits) as HitsFromFile
             from Hits
-            where " . $replace . " = '" . $word . "'
+            where " . $replace . " LIKE '%" . $word . "%'
             AND isStopList=" . $isStopList . "
             group by FileNum, id
             order by FileNum";
