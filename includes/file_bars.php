@@ -21,7 +21,7 @@ if (!$result) {
 while ($row = mysqli_fetch_assoc($result)) {
 
     echo '<div>';
-    echo '<a title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
+    echo '<a target="_blank" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<button class="deleteBtn" title="Delete this file" href="deleteFile.php?fileid=' . $row["fileID"] . '">';
     echo '<img style="width: 40px" src="./images/x.png" data-pin-nopin="true"/>';
     echo '</button>';
