@@ -73,19 +73,22 @@
 
         <script type="text/javascript">
             var input = document.getElementById("searchInput");
-            input.addEventListener("keyup", function(event) {
+            input.addEventListener("keyup", function (event) {
                 event.preventDefault();
                 if (event.keyCode === 13) {
                     doSomething(document.getElementById("searchInput").value)
                 }
             });
+
             function doSomething(value) {
+                var newValue = value;
+                newValue = newValue.toLowerCase();
                 document.getElementById('iframeSearch').remove();
                 var iframe = document.createElement('iframe');
                 iframe.id = "iframeSearch";
                 iframe.frameBorder = "0";
                 iframe.height = "100%";
-                var html = "includes/searchPostingFile.php?searchInput=" + value + "";
+                var html = "includes/searchPostingFile.php?searchInput=" + newValue + "";
                 iframe.src = encodeURI(html);
                 document.getElementById("searchBox").appendChild(iframe);
             }
@@ -97,11 +100,11 @@
                 $scope.search = 0;
                 $scope.myValue;
             });
-            angular.module('myApp').directive('ngEnter', function() {
-                return function(scope, element, attrs) {
-                    element.bind("keydown keypress", function(event) {
-                        if(event.which === 13) {
-                            scope.$apply(function(){
+            angular.module('myApp').directive('ngEnter', function () {
+                return function (scope, element, attrs) {
+                    element.bind("keydown keypress", function (event) {
+                        if (event.which === 13) {
+                            scope.$apply(function () {
                                 scope.$eval(attrs.ngEnter, {'event': event});
                             });
                             event.preventDefault();

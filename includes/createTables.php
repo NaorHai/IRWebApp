@@ -73,6 +73,11 @@ function buildInvertedIndex($filenames)
             $word = strtolower($match[0]);
             if ($lyrics) {
                 if (($word == " you") ||
+                    ($word == " we") ||
+                    ($word == " they") ||
+                    ($word == " she") ||
+                    ($word == " an") ||
+                    ($word == " will") ||
                     ($word == " a") ||
                     ($word == " i") ||
                     ($word == " is") ||
