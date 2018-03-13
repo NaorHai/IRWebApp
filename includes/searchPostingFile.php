@@ -24,6 +24,7 @@ function getSearchPostingFile()
     $word = str_replace("(", "", $word);
     $word = str_replace(")", "", $word);
 
+
     $rows = explode(' ', $word);
 
     $numOfWords = count($rows);
@@ -46,10 +47,10 @@ function getSearchPostingFile()
         else {
             if ($isRedundantOperator && $k+1 == $numOfWords) {continue;}
 
-            else if ($v == "and") {
+            else if ($v == "and" || $v == "^" ) {
                 $query .= "AND ";
             }
-            else  if ($v == "or") {
+            else  if ($v == "or" || $v == "||") {
                 $query .= "OR ";
             }
         }
@@ -68,7 +69,6 @@ function getSearchPostingFile()
             group by FileNum, id
             order by FileNum";
 
-    echo "<script>console.log($numOfWords)</script>";
     // connect
     include('connection.php');
 
