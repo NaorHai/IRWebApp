@@ -19,9 +19,47 @@ function getSearchPostingFile()
         return;
     }
 
-    $rows = explode(" ", $word);
+
+    $word = str_replace("not ", "!", $word);
+
+    echo "<script>console.log($word)</script>";
+
+
+    if($word[0] == "(") {
+        substr($word, 1, -1);
+    }
+
+    $rows = explode(' ', $word);
 
     $numOfWords = count($rows);
+
+    $isRedundantOperator = $numOfWords % 2 ==0;
+
+    $query="";
+
+
+    foreach ($rows as $k => $v) {
+        if ($k % 2 == 0) {
+            $isNot = $v[0] == "!";
+            if ($isNot) {
+                $query .= "word NOT LIKE '%" .$v ."%' ";
+            }
+            else{
+                $query .= "word LIKE '%" .$v ."%' ";
+            }
+        }
+        else {
+            if ($isRedundantOperator && $k+1 == $numOfWords) {continue;}
+
+            else if ($v == "and") {
+                $query .= "AND ";
+            }
+            else  if ($v == "or") {
+                $query .= "OR ";
+            }
+        }
+    }
+
 
     $replace = " REPLACE(word, ' ', '') ";
     $queryToEx = "select
@@ -30,11 +68,12 @@ function getSearchPostingFile()
             fileNo as FileNum ,
             sum(hits) as HitsFromFile
             from Hits
-            where " . $replace . " LIKE '%" . $word . "%'
+            where " . $query . "
             AND isStopList=" . $isStopList . "
             group by FileNum, id
             order by FileNum";
 
+    echo "<script>console.log($numOfWords)</script>";
     // connect
     include('connection.php');
 
