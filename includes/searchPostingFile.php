@@ -21,13 +21,8 @@ function getSearchPostingFile()
 
 
     $word = str_replace("not ", "!", $word);
-
-    echo "<script>console.log($word)</script>";
-
-
-    if($word[0] == "(") {
-        substr($word, 1, -1);
-    }
+    $word = str_replace("(", "", $word);
+    $word = str_replace(")", "", $word);
 
     $rows = explode(' ', $word);
 
