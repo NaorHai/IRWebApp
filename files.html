@@ -88,7 +88,6 @@
                id="passwordInput"
                type="password"
                ng-enter="search=1"
-               ng-model="myValue"
                name="passwordInput"
                placeholder="Enter your password">
 
@@ -97,7 +96,6 @@
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function ($scope) {
             $scope.search = 0;
-            $scope.myValue;
         });
         angular.module('myApp').directive('ngEnter', function () {
             return function (scope, element, attrs) {
@@ -108,6 +106,17 @@
                             document.getElementsByClassName("files_container")[0].style.display = "block"
                             document.getElementById("form").style.display = "none"
 
+                        } else {
+                            if (document.getElementById('tryAgain')) {
+                            } else {
+                                var newElement = document.createElement('div');
+                                newElement.setAttribute("id", "tryAgain");
+                                newElement.innerHTML = "Try again..";
+                                newElement.style.marginTop = "10px";
+                                newElement.style.textAlign = "center";
+                                newElement.style.fontSize = "20px";
+                                document.getElementById('form').appendChild(newElement);
+                            }
                         }
                     }
                 });
