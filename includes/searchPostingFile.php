@@ -107,7 +107,7 @@ function getSearchPostingFile()
 
 
     // table definition
-    echo '<table style="margin: 0px auto; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
+    echo '<table id="tableId" style="margin: 0px auto; border-collapse: collapse; cellspacing="0" cellpadding="0";">';
 
     // first table row print
     echo '<tr ><a href="#">';
@@ -119,15 +119,19 @@ function getSearchPostingFile()
     }
     echo '</a></tr>';
 
+    $count = 0;
     while ($row = mysqli_fetch_array($result)) {
+
         $i = $row["FileNum"];
 
-        echo '<tr style="cursor:pointer;" onclick="javascript:toFile(' . $i . ',' . $wordId . ');"><a href="#">';
+        echo '<tr style="cursor:pointer;" onclick="javascript:toFile(' . $i . ',' . $count . ');"><a href="#">';
 
         echo '<script type="text/javascript">
-                function toFile(value, id){
+                function toFile(value, row){
                     path =  "../data/file"+value+".txt";
-                    window.open("getLyrics.php?file="+value+"&word="+id+"", "", "width=700,height=800");
+                    word =  document.getElementById("tableId").rows[row+1].firstChild.getElementsByTagName("span")[0].innerHTML;
+                    word = word.replace(" ","");
+                    window.open("getLyrics.php?file="+value+"&word="+word, "", "width=700,height=800");
                 }
              </script>';
         {
@@ -137,6 +141,7 @@ function getSearchPostingFile()
             echo $tdOpen . $row["Offset"] . $tdClose;
         }
         echo '</a></tr>';
+        $count ++;
     }
     echo '</table>';
 

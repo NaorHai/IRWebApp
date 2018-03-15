@@ -40,16 +40,9 @@ function getLyrics()
         // connect
         include('connection.php');
 
-        // Get Word by Id
-        $getWord = "select word from Hits where id = '" . $tosearch . "'";
-        $result = mysqli_query($connection, $getWord);
-        while ($ID = mysqli_fetch_array($result)) {
-            $wordId = $ID["word"];
-        }
-
         // Mark the word
         echo "<span>Search:</span>
-                        <input type='text' name='keyword' class='form-control input-sm' value='" . $wordId . "'>";
+                        <input type='text' name='keyword' class='form-control input-sm' value='" . $tosearch . "'>";
     }
 
     if (file_exists('./'.$fileName)){
