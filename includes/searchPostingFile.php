@@ -23,6 +23,7 @@ function getSearchPostingFile()
     $word = str_replace("not ", "!", $word);
     $word = str_replace("(", "", $word);
     $word = str_replace(")", "", $word);
+    $word = str_replace("'", "", $word);
 
 
     $rows = explode(' ', $word);
